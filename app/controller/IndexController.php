@@ -26,32 +26,10 @@ class IndexController extends Controller
         } else {
             $data['error'] = '';
         }
-        $data['topics'] = $this->app->model('topic')->getTopics();
-        $data['comments'] = $this->app->model('comment')->getComments();
-//        $data['comment'] = $this->app->model('topic')->getComments();
-//        $data['total_users'] = $this->app->model('users')->getTotalUsers();
-//        $data['total_comments'] = $this->app->model('comment')->getTotalComments();
-
         $data['header'] = $this->app->execute(new Route('header'));
         $data['footer'] = $this->app->execute(new Route('footer'));
 
         $this->app->get('response')->setOutput($this->app->view('home', $data));
-
-
-
-//        $this->response->setOutput($this->view('home', $data));
-
-
-//        $response = new Response();
-//
-//        $view = new View();
-//
-//        $response->setOutput($view->render('home'));
-//        $this->app->set('response', $response);
     }
 
-    public function testAction()
-    {
-        var_dump('ok');
-    }
 }
