@@ -26,6 +26,9 @@ class IndexController extends Controller
         } else {
             $data['error'] = '';
         }
+        $data['topics'] = $this->app->model('topic')->getTopics();
+        $data['comments'] = $this->app->model('comment')->getComments();
+
         $data['header'] = $this->app->execute(new Route('header'));
         $data['footer'] = $this->app->execute(new Route('footer'));
 

@@ -1,110 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-</head>
-<body>
-	<header>
-		<button>Головна</button>
-		<button>Екскурсія</button>
-		<button>Новоини</button>
-	</header>
+<?php
+echo $header;
+?>
+<div class="content">
 
-	<content>
-		<div class="bg_1"></div>
+    <?php if($logged){ ?>
+    <div class="homePanel">
+        <h1>Homepage</h1>
+        <div class="homeMenu">
+            <h4>Menu</h4>
+            <p>Hello, <?php echo $username ?>!</p>
+            <form action="logout" method="post">
+                <input type="submit" value="logout" class="submit button">
+            </form>
+            <form action="topic" method="post">
+                <input type="submit" value="Add new topic" class="submit button">
+            </form>
+        </div>
+    </div>
 
-		<div class="prob_c">
-			<div class="prob_p">
-				<p>Циклова методична комісія <br/> "Економіка і ІТ"</p>
-			</div>
-			<div class="prob">
-				<p><b>Навчально-методична проблема комісії</b><br>
-				Впровадження перспективних напрямків розвитку системи освіти з використанням сучасних веборієнтованих технологій глобальної мережі Інтернет як умова оптимізації освітнього процесу у ВПУ №7. <br/>
-				Навчально-методична проблема над якою працює ЦМК обиралася з урахуванням індивідуальних навчально-методичних проблем членів циклової методичної комісії. </p>
-			</div>
-		</div>
-
-		<div class="nap_c">
-			<div class="nap">
-			<p>
-            <b>1.</b> Підвищення якісного рівня навчальних досягнень учнів. <br/>
-
-            <b>2.</b> Якісне та повне методичне забезпечення навчального процесу. <br/>
-
-            <b>3.</b> Розвиток творчих здібностей учнів шляхом індивідуальної роботи з учнями та інформатизації навчального процесу. <br/>
-
-            <b>4.</b> Активізація роботи самоосвітньої діяльності викладачів. <br/>
-
-            <b>5.</b> Вивчення та впровадження в роботу елементів передового педагогічного досвіду обласного рівня та членів ЦМК. <br/>
-
-            <b>6.</b> Відвідування шкіл передового педагогічного досвіду з метою оволодіння практичними вміннями і навичками інноваційної педагогічної діяльності. <br/>
-
-            <b>7.</b> Організація і проведення тематичних засідань циклової методичної комісії. <br/>
-
-            <b>8.</b> Надання методичної підготовки викладачам та майстрам в/н у проведенні відкритих уроків, розробці комплексного методичного забезпечення предметів і дисциплін. <br/>
-
-            <b>9.</b> Взаємовідвідування різних форм освітньої діяльності викладачів та майстрів в/н з метою використання досвіду роботи у освітньому процесі </p>
-			</div>
-			<p class="rot">Напрямки роботи</p>
-			<div class="nap_i">
-				<img src="mat/stud.png">
-			</div>
-		</div>
-
-		<div class="zag">
-			<p>Професії</p>
-		</div>
-
-		<div class="prof_c">
-			<div>
-				<div id="MyDIV11" class="MyDIVs">
-					<img src="mat/op.png">
-					<p><b>Професія 4113 </b><br> Оператор з обробки інформації та програмного забезпечення</p>
-				</div>
-				<div id="MyDIV12" class="MyDIVs">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-			</div>
-
-			<div>
-				<div id="MyDIV21" class="MyDIVs">
-					<img src="mat/o.png">
-					<p><b>Професія 4113 </b><br> Оператор з обробки інформації та програмного забезпечення</p>
-				</div>
-				<div id="MyDIV22" class="MyDIVs">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-			</div>
-
-			<div>
-				<div id="MyDIV31" class="MyDIVs">
-					<img src="mat/nab.png">
-					<p><b>Професія 4113 </b><br> Оператор з обробки інформації та програмного забезпечення</p>
-				</div>
-				<div id="MyDIV32" class="MyDIVs">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-			</div>
-		</div>
-	</content>
-<script type="text/javascript" src="script.js"></script>
-</body>
-</html>
+    <?php } else { ?>
+    <div class="homePanel">
+        <h1>Homepage</h1>
+        <div class="homeMenu">
+            <h4>Menu</h4>
+            <p>Hello, <?php echo $username ?>!</p>
+            <form action="login" method="post">
+                <div><input type="submit" value="Login" class="submit"></div>
+            </form>
+            <br>
+            <form action="register" method="post">
+                <div><input type="submit" value="Register" class="submit"></div>
+            </form>
+        </div>
+    </div>
+    <?php } ?>
+    <div class="topicContainer">
+        <?php
+if ($topics) {
+    foreach ($topics as $topic) {
+?>
+        <div class="topicBlock" id="<?php echo $topic['id'] ?>">
+            <h2><?php echo $topic['title'] ?></h2>
+            <p><?php echo $topic['content'] ?></p>
+            <hr class="line">
+            <form method="post" action="comment/getComments?post_id=<?php echo $topic['id'] ?>" id="displayCommentsButton<?php  echo $topic['id'] ?>">
+                <input type="button" value="Show comments" class="homeCommentSubmit">
+            </form>
+            <div class="homeCommentDiv"></div>
+            <?php if ($logged) { ?>
+            <div id="homeCommentDiv" style="display: none">
+            <hr class="line">
+            <br>
+            Add Comment
+            <form method="post" class="homeCommentForm"
+                  action="comment/addComment?post_id=<?php echo $topic['id'] ?>&user_id=<?php echo $user_id ?>&author=<?php echo$username ?>">
+                <input type="text" name="comment" id="<?php echo $topic['id'] ?>" class="commentInput">
+                <input type="button" class="homeCommentSubmit" value="Submit">
+            </form>
+            </div>
+            <?php } ?>
+        </div>
+        <?php
+    }
+} ?>
+    </div>
+</div>
+<?php echo $footer; ?>
