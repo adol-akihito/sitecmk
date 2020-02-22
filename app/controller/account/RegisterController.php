@@ -13,6 +13,7 @@ class RegisterController extends Controller
         //Layout
         $data['header_login'] = $this->url->link('login');
         $data['back'] = $this->url->link();
+        $data['action'] = $this->url->link('account/register/apply');
         $data['header'] = $this->app->view('layout/header', $data);
         $data['footer'] = $this->app->view('layout/footer');
 
@@ -29,9 +30,9 @@ class RegisterController extends Controller
             $err = 'Error: Email must be less than 96 characters!';
         } elseif ($this->app->model('users')->allowUserByEmail($this->app->get('request')->post['email'])) {
             $err = 'Error: E-Mail Address is already registered!';
-        } elseif ((strlen($this->app->get('request')->post['password']) < 4) || strlen($this->app->get('request')->post['passwordVerify']) > 40) {
+        } elseif ((strlen($this->app->get('request')->post['password']) < 4) || strlen($this->app->get('request')->post['confirm']) > 40) {
             $err = 'Error: Password must be between 4 and 20 characters!';
-        } elseif ($this->app->get('request')->post['password'] !== $this->app->get('request')->post['passwordVerify']) {
+        } elseif ($this->app->get('request')->post['password'] !== $this->app->get('request')->post['confirm']) {
             $err = 'Error: Your password do not matches!';
         }
 
@@ -40,15 +41,19 @@ class RegisterController extends Controller
 
     public function applyAction()
     {
-        $err = $this->validate();
-        if ($this->request->isPost() && !$err) {
-            $this->app->model('users')->addUser($this->request->post);
-            $this->user->login($this->request->post);
-            $this->response->redirect($this->url->link('home'));
+        $validateErr = $this->validate();
+        if (!$validateErr) {
+            if ($this->request->isPost()) {
+                $this->app->model('users')->addUser($this->request->post);
+                $this->user->login($this->request->post);
+                $data['location'] = $this->url->link('home');
+            } else {
+                $data['err'] = 'This Email already registered!';
+            }
         } else {
-            $this->response->redirect($this->url->link('register'));
-            echo $err;
-        }
+            $data['err'] = $validateErr;
+        } 
 
+        echo json_encode($data);
     }
 }
