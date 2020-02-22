@@ -1,6 +1,6 @@
 {
-    "name": "yar/blog_demo",
-    "description": "yar test application",
+    "name": "site/cmk",
+    "description": "cmk",
     "minimum-stability": "dev",
     "license": "GPL-3.0+",
     "authors": [

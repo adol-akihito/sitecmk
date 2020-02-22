@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="css/style.css" rel="stylesheet">
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.js"
-            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-            crossorigin="anonymous"></script>
-
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <header>
+    <?php if (isset($header_login)) { ?>
+    <div class="d-flex bg-white border-bottom shadow-sm navheader">
+        <a class="btn btn btn-primary btn-back" href="<?php echo $header_login; ?>" role="button">Login</a>
+    </div>
+    <?php } ?>
+
+    <?php if (isset($header_register)) { ?>
+    <div class="d-flex bg-white border-bottom shadow-sm navheader">
+        <a class="btn btn btn-primary btn-back" href="<?php echo $header_register; ?>" role="button">Register</a>
+    </div>
+    <?php } ?>
+    <?php if (isset($back)) { ?>
+    <div class="d-flex bg-white border-bottom shadow-sm navheader">
+        <a class="btn btn btn-primary btn-back" href="<?php echo $back; ?>" role="button">Back to Homepage</a>
+    </div>
+    <?php } ?>
 </header>

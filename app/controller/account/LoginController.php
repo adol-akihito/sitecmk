@@ -8,25 +8,24 @@ use Application\engine\Route;
 class LoginController extends Controller
 {
     private $error = '';
+
     public function indexAction()
     {
-        $data = [];
         $data['error'] = $this->error;
-        $data['url'] = $this->app->get('url');
+        $data['action'] = $this->url->link('account/login/login');
 
-        $data['header'] = $this->app->execute(new Route('header'));
-        $data['footer'] = $this->app->execute(new Route('footer'));
-
-
+        $data['header_register'] = $this->url->link('register');
+        $data['back'] = $this->url->link();
+        $data['header'] = $this->app->view('layout/header', $data);
+        $data['footer'] = $this->app->view('layout/footer');
 
         $this->app->get('response')->setOutput($this->app->view('account/login', $data));
     }
 
     public function applyAction()
     {
-
         if ($this->app->get('request')->isPost() && $this->validate()) {
-            $this->app->get('response')->redirect($this->app->get('url')->link('home'));
+            $this->app->get('response')->redirect($this->url->link('home'));
         }
 
         if ($this->app->get('request')->isPost()) {
@@ -35,8 +34,18 @@ class LoginController extends Controller
 
         $data['error'] = $this->error;
 
+        $this->app->get('response')->redirect($this->url->link());
+    }
 
-        $this->app->get('response')->setOutput($this->app->view('account/login', $data));
+    public function loginAction()
+    {
+        if ($this->app->get('request')->isPost() && $this->validate()) {
+            $data['location'] = $this->url->link();
+        } else {
+            $data['error'] = $this->error;
+        }
+
+        echo json_encode($data);
     }
 
     public function validate()

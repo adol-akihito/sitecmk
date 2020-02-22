@@ -47,6 +47,11 @@ class Db
         return false;
     }
 
+    public function insert_id()
+    {
+        return $this->connection->insert_id;
+    }
+
     public function escape($value)
     {
         return $this->connection->real_escape_string($value);

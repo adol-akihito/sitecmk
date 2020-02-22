@@ -28,13 +28,13 @@ class User
             if (password_verify($data['password'], $user->row['password'])) {
                 $this->id = $_SESSION['user']['id'] = $user->row['id'];
                 $this->username = $_SESSION['user']['username'] = $user->row['username'];
+                return true;
             }
         } else {
             $this->logout();
-            return false;
         }
+        return false;
 
-        return true;
     }
 
     public function logout()

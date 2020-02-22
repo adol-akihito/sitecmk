@@ -13,10 +13,8 @@ class Url
         $this->url = $url;
     }
 
-    public function link($route)
+    public function link($route = '')
     {
-        $this->url = $this->url . $route;
-
-        return $this->url;
+        return $this->url . $route;
     }
 }

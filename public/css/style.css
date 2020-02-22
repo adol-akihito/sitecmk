@@ -265,3 +265,37 @@ p {
 .homeCommentForm {
 
 }
+
+.navheader {
+    padding: 10px;
+    text-align: right;
+}
+
+.btn-back {
+    margin-right: 10px;
+    /*border-color: #007bff;*/
+    /*color: #007bff;*/
+    font-weight: 400;
+    padding: 8px 24px 8px 24px;
+}
+
+.btn-back:hover {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.border {
+    border-left: 3px;
+
+    /*display: inline-block;*/
+    /*border-color: #990000;*/
+    /*width: 70px;*/
+    /*height: 70px;*/
+    /*margin: 6px;*/
+}
+
+/*.com-div {*/
+/*    border-left: 10px;*/
+/*    border-bottom-color: #5d95e6;*/
+/*}*/

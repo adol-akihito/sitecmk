@@ -6,21 +6,21 @@ namespace Application\model;
 
 use Application\core\Model;
 
-class TopicModel extends Model
+class PostModel extends Model
 {
 
-    public function getTopics()
+    public function getPosts()
     {
-        $sql = 'SELECT * FROM `topic`';
+        $sql = 'SELECT * FROM `post`';
 
         $query = $this->db->query($sql);
 
         return $query->rows;
     }
 
-    public function addTopic($data)
+    public function addPost($data)
     {
-        $sql = "INSERT INTO `topic` SET `title` = '" . $this->db->escape($data['title']) . "', `content` = '" . $this->db->escape($data['content']) . "', `user_id` = '" . $data['user_id'] . "', `date_added` = NOW()";
+        $sql = "INSERT INTO `post` SET `title` = '" . $this->db->escape($data['title']) . "', `content` = '" . $this->db->escape($data['content']) . "', `user_id` = '" . $data['user_id'] . "', `date_added` = NOW()";
 
         $this->db->query($sql);
     }
@@ -34,9 +34,9 @@ class TopicModel extends Model
 
 
 
-    public function getTopic($id)
+    public function getPost($id)
     {
-        $query = $this->db->query("SELECT DISTINCT * FROM `topic` WHERE id = '" . (int)$id . "'");
+        $query = $this->db->query("SELECT DISTINCT * FROM `post` WHERE id = '" . (int)$id . "'");
 
         return $query->row;
     }
@@ -52,9 +52,9 @@ class TopicModel extends Model
 
 
 
-    public function getTotalTopics()
+    public function getTotalPosts()
     {
-        $sql = "SELECT COUNT(*) AS total FROM `topic`";
+        $sql = "SELECT COUNT(*) AS total FROM `post`";
 
         $query = $this->db->query($sql);
 

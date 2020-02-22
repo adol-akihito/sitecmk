@@ -9,12 +9,12 @@ class RegisterController extends Controller
 {
     public function indexAction()
     {
-        $err = '';
-        $data = [];
-        $data['err'] = $err;
+        $data['err'] = '';
         //Layout
-        $data['header'] = $this->app->execute(new Route('header'));
-        $data['footer'] = $this->app->execute(new Route('footer'));
+        $data['header_login'] = $this->url->link('login');
+        $data['back'] = $this->url->link();
+        $data['header'] = $this->app->view('layout/header', $data);
+        $data['footer'] = $this->app->view('layout/footer');
 
         $this->app->get('response')->setOutput($this->app->view('account/register', $data));
     }
