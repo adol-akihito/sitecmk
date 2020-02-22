@@ -37,7 +37,7 @@ class IndexController extends Controller
         $data['posts'] = $this->app->model('post')->getPosts();
 
         $data['header'] = $this->app->view('layout/header');
-        $data['footer'] = $this->app->execute(new Route('footer'));
+        $data['footer'] = $this->app->view('layout/footer');
 
         $this->app->get('response')->setOutput($this->app->view('home', $data));
     }

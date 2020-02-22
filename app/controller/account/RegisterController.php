@@ -41,11 +41,12 @@ class RegisterController extends Controller
     public function applyAction()
     {
         $err = $this->validate();
-        if ($this->app->get('request')->isPost() && !$err) {
-            $this->app->model('users')->addUser($this->app->get('request')->post);
-            $this->app->get('response')->redirect($this->app->get('url')->link('home'));
+        if ($this->request->isPost() && !$err) {
+            $this->app->model('users')->addUser($this->request->post);
+            $this->user->login($this->request->post);
+            $this->response->redirect($this->url->link('home'));
         } else {
-            $this->app->get('response')->redirect($this->app->get('url')->link('register'));
+            $this->response->redirect($this->url->link('register'));
             echo $err;
         }
 
